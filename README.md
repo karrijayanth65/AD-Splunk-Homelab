@@ -20,7 +20,6 @@ This repository provides a build guide, configuration examples and an investigat
 | Investigate repeated network logon failures | [SMB authentication case](cases/SMB-BruteForce-Detection/README.md) |
 | Test the documentation locally | [Validation guide](docs/validation.md) |
 | Resolve common ingestion problems | [Troubleshooting](docs/troubleshooting.md) |
-| Review technical sources and inspiration | [References](docs/REFERENCES.md) |
 
 ## What the lab is designed to teach
 
@@ -38,11 +37,8 @@ AD-Splunk-Homelab/
 ├── cases/SMB-BruteForce-Detection/   Investigation plan and evidence requirements
 ├── configs/splunk/                  Lab forwarding examples
 ├── detections/                     SPL searches and field assumptions
-├── docs/                           Architecture, setup, validation and sources
-├── scripts/                        Offline repository checker
-├── AGENTS.md                       Agent entry point
-├── agent.md                        Editing and publication instructions
-└── Bible.md                        Project decisions and verification boundaries
+├── docs/                           Architecture, setup and validation
+└── scripts/                        Offline repository checker
 ```
 
 ## Operating boundaries

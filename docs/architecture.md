@@ -42,4 +42,4 @@ The examples show a minimal internal training transport. They do not configure T
 
 ## Deliberate differences from the inspiration
 
-This design uses an internal-only exercise network, a reserved test domain, source-aware triage and explicit evidence gates. It does not reproduce the inspiration repository's screenshots, diagram or Sysmon XML file. References are kept in the [source list](REFERENCES.md).
+This design uses an internal-only exercise network, a reserved test domain, source-aware triage and explicit evidence gates. It does not reproduce the inspiration repository's screenshots, diagram or Sysmon XML file.

@@ -11,3 +11,7 @@ raw-evidence/
 __pycache__/
 .DS_Store
 Thumbs.db
+/agent.md
+/AGENTS.md
+/Bible.md
+/docs/REFERENCES.md
