@@ -2,7 +2,7 @@
 
 [Case](../README.md) · [Investigation plan](../reports/investigation-plan.md)
 
-No live execution artifacts are included. This directory describes what to collect during an authorized run; it is not a collection of simulated proof.
+No local-run execution artifacts are included. Authorized source-lab screenshots appear in the [case overview](../README.md), with attribution and preserved values. This directory describes what to collect during your own authorized run; source captures are not proof that this guide was executed locally.
 
 ## Capture set
 

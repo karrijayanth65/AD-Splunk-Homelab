@@ -4,7 +4,7 @@ An isolated Windows domain lab for learning how authentication activity reaches 
 
 **Documentation maintainer:** Jayanth K · **Updated:** 15 October 2026
 
-This repository provides a build guide, configuration examples and an investigation workflow. It does not contain personal live-lab execution records or captured screenshots. The diagrams describe the design; they are not console captures.
+This repository provides a build guide, configuration examples and an investigation workflow, with authorized reference screenshots in the SMB case. These captures document the source lab, not a personal execution of this guide. The architecture diagram describes the design; it is not a console capture.
 
 ![Lab architecture: two Windows log sources forward to Splunk on a private virtual network](assets/diagrams/lab-architecture.svg)
 
