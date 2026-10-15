@@ -1,48 +1,44 @@
-# AD + Splunk Homelab
+# Active Directory + Splunk Homelab
 
-An isolated Windows domain lab for learning how authentication activity reaches Splunk and how to investigate suspicious network logons.
+A four-machine lab for collecting Windows events in Splunk and investigating repeated authentication failures.
 
-**Documentation maintainer:** Jayanth K · **Updated:** 15 October 2026
+**Documentation:** Jayanth K · **Updated:** 15 October 2026
 
-This repository provides a build guide, configuration examples and an investigation workflow, with authorized reference screenshots in the SMB case. These captures document the source lab, not a personal execution of this guide. The architecture diagram describes the design; it is not a console capture.
+## Explore the project
 
-![Lab architecture: two Windows log sources forward to Splunk on a private virtual network](assets/diagrams/lab-architecture.svg)
+- [Build the lab](SETUP.md) — network, Active Directory, Splunk and event forwarding.
+- [SMB investigation](SMB-Investigation.md) — procedure, searches and screenshots.
+- [Configuration examples](configs/) · [Splunk searches](searches/)
 
-[Open full-size architecture diagram](assets/diagrams/lab-architecture.svg) · [Read the design](docs/architecture.md)
+## Lab layout
 
-## Start here
+![Active Directory and Splunk network diagram](images/lab-architecture.svg)
 
-| Task | Document |
-|---|---|
-| Understand the four-machine design | [Architecture and boundaries](docs/architecture.md) |
-| Build the domain and collector | [Setup runbook](docs/setup.md) |
-| Configure and check Windows forwarding | [Telemetry pipeline](docs/telemetry.md) |
-| Investigate repeated network logon failures | [SMB authentication case](cases/SMB-BruteForce-Detection/README.md) |
-| Test the documentation locally | [Validation guide](docs/validation.md) |
-| Resolve common ingestion problems | [Troubleshooting](docs/troubleshooting.md) |
+| Machine | Address | Role |
+|---|---|---|
+| ADDC01 | 192.168.10.7 | Active Directory, DNS and event forwarding |
+| TARGET-PC | 192.168.10.100 | Domain workstation and SMB test share |
+| SPLUNK | 192.168.10.10 | Event collection and analysis |
+| KALI | 192.168.10.250 | Authorized test client |
 
-## What the lab is designed to teach
+The VMs share an isolated VirtualBox internal network, `AD-LAB`. The domain is `ad.lab.test`; Windows events go to the `endpoint` index on TCP 9997.
 
-- Separate identity services, endpoint telemetry and the analysis platform.
-- Follow an event from the Windows Security log to a searchable Splunk record.
-- Use source, account, target host and time together when investigating authentication.
-- Distinguish a detection candidate from a supported investigation conclusion.
-- Keep evidence capture reproducible without publishing credentials or unnecessary personal information.
-
-## Repository map
+## Files
 
 ```text
 AD-Splunk-Homelab/
-├── assets/diagrams/                 Editable SVG design illustrations
-├── cases/SMB-BruteForce-Detection/   Investigation plan and evidence requirements
-├── configs/splunk/                  Lab forwarding examples
-├── detections/                     SPL searches and field assumptions
-├── docs/                           Architecture, setup and validation
-└── scripts/                        Offline repository checker
+├── README.md
+├── SETUP.md
+├── SMB-Investigation.md
+├── configs/                 Forwarder input and output examples
+├── searches/                Three authentication searches
+└── images/                  Architecture and two Splunk screenshots
 ```
 
-## Operating boundaries
+## Credits and documentation status
 
-Use machines and accounts you control. Keep the exercise off bridged networks and never expose SMB, domain services or the Splunk receiver to the Internet. Use separate lab credentials, snapshots and a controlled test account. The setup is a learning design, not a production security baseline.
+The lab topic and two unchanged Splunk screenshots come from [Vikram2003-07/HomeLab](https://github.com/Vikram2003-07/HomeLab/tree/244b1409225db2a2748681e3493db48dc845f7a9), reused with permission confirmed by this repository's maintainer. Credit for those source captures and the source investigation belongs to their creator. Jayanth K maintains this repository's independently written guide, configuration examples and searches.
 
-The included SPL is a starting point for XML-rendered Windows events. Validate field extraction, volume and thresholds in your own environment before enabling an alert. A successful local documentation check does not establish that these searches ran in Splunk.
+Documentation and presentation updates are complete. Personal execution of this guide and its SPL searches has not been verified. The screenshots show the source lab's `jsmith` account, not this guide's `LAB\labuser`; their original dates and values are preserved. The architecture is a design diagram, not an execution capture.
+
+Use the lab only on machines and accounts you control. Configuration examples are for an isolated learning environment, not a production security baseline.

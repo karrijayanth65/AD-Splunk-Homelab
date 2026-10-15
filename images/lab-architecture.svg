@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
   <title id="title">AD and Splunk isolated lab architecture</title>
-  <desc id="desc">Four proposed virtual machines on the internal AD-LAB network. Windows Security and Sysmon events flow from ADDC01 and TARGET-PC to Splunk on TCP 9997. Kali makes an authorized SMB test to TARGET-PC. This is a design illustration, not execution evidence.</desc>
+  <desc id="desc">Architecture diagram of four virtual machines on the internal AD-LAB network. Windows Security and Sysmon events flow from ADDC01 and TARGET-PC to Splunk on TCP 9997. Kali connects to TARGET-PC for the authorized SMB test.</desc>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#087f8c"/></marker><marker id="testarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a45b16"/></marker></defs>
   <rect width="1200" height="690" fill="#f4f6fa"/>
   <rect width="1200" height="124" fill="#14263d"/>
@@ -42,6 +42,6 @@
     <text x="590" y="536" text-anchor="middle" fill="#8a4c12" font-size="14">Authorized SMB authentication · TCP 445</text>
     <text x="48" y="620" fill="#172f4b" font-size="18" font-weight="600">Design principle</text>
     <text x="48" y="648" fill="#4d637d" font-size="16">Verify the event path before interpreting a detection. Keep test activity inside the lab.</text>
-    <text x="1150" y="672" text-anchor="end" fill="#65778e" font-size="12">Original design illustration · not a live capture</text>
+    <text x="1150" y="672" text-anchor="end" fill="#65778e" font-size="12">Lab architecture</text>
   </g>
 </svg>
