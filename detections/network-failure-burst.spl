@@ -1,0 +1,11 @@
+index=endpoint earliest=-30m "4625"
+| rex field=_raw "<EventID(?: [^>]*)?>(?<event_id>4625)</EventID>"
+| rex field=_raw "<Data Name=.TargetUserName.>(?<target_user>[^<]+)</Data>"
+| rex field=_raw "<Data Name=.IpAddress.>(?<source_ip>[^<]+)</Data>"
+| rex field=_raw "<Data Name=.LogonType.>(?<logon_type>[^<]+)</Data>"
+| where event_id="4625" AND logon_type="3" AND isnotnull(target_user) AND isnotnull(source_ip) AND source_ip!="-"
+| eval source_ip=replace(source_ip,"^::ffff:","")
+| bin _time span=5m
+| stats count as failed_logons by _time host source_ip target_user
+| where failed_logons>=3
+| sort 0 -failed_logons

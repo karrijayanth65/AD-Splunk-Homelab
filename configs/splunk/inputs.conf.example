@@ -1,0 +1,17 @@
+# Lab example. Review current forwarder documentation before use.
+# Install only once; the endpoint index must exist on the receiver.
+[WinEventLog://Security]
+disabled = 0
+index = endpoint
+renderXml = true
+
+[WinEventLog://System]
+disabled = 0
+index = endpoint
+renderXml = true
+
+# Enable this channel only when Sysmon is installed and configured.
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+disabled = 0
+index = endpoint
+renderXml = true

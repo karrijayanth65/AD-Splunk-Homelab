@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img" aria-labelledby="title desc">
+  <title id="title">Network authentication investigation gates</title>
+  <desc id="desc">Start with authorized test context, verify raw Security events, validate search extraction, then correlate protocol and sequence before stating a verdict. The diagram is an original workflow illustration, not a captured tool interface.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#087f8c"/></marker></defs>
+  <rect width="1200" height="530" fill="#f4f6fa"/>
+  <rect width="1200" height="114" fill="#14263d"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="44" y="39" fill="#8dd6db" font-size="14" font-weight="700" letter-spacing="2">AD-SMB-001 · INVESTIGATION DESIGN</text>
+    <text x="44" y="80" fill="#fff" font-size="30" font-weight="700">A threshold starts the review. Evidence decides the verdict.</text>
+    <g fill="#fff" stroke="#c7d3e2" stroke-width="1.5">
+      <rect x="40" y="160" width="260" height="194" rx="12"/>
+      <rect x="326" y="160" width="260" height="194" rx="12"/>
+      <rect x="612" y="160" width="260" height="194" rx="12"/>
+      <rect x="898" y="160" width="260" height="194" rx="12"/>
+    </g>
+    <g fill="#087f8c" font-size="14" font-weight="700"><text x="60" y="190">01 / CONTEXT</text><text x="346" y="190">02 / RAW EVENT</text><text x="632" y="190">03 / SEARCH</text><text x="918" y="190">04 / CORRELATION</text></g>
+    <g fill="#172f4b" font-size="20" font-weight="700"><text x="60" y="229">Authorize and bound</text><text x="346" y="229">Verify the record</text><text x="632" y="229">Check extraction</text><text x="918" y="229">Test alternatives</text></g>
+    <g fill="#4d637d" font-size="16">
+      <text x="60" y="267">Host / account / time</text><text x="60" y="295">Lockout policy / scope</text><text x="60" y="323">No broad retries</text>
+      <text x="346" y="267">4625 failure / 4624 success</text><text x="346" y="295">Host / record ID / UTC time</text><text x="346" y="323">Preserve the raw source</text>
+      <text x="632" y="267">XML fields / missing values</text><text x="632" y="295">Source / account / target</text><text x="632" y="323">Threshold is a candidate</text>
+      <text x="918" y="267">SMB context / TCP 445</text><text x="918" y="295">Same sequence and identity</text><text x="918" y="323">State confidence and gaps</text>
+    </g>
+    <path d="M300 246H321M586 246H607M872 246H893" stroke="#087f8c" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="40" y="386" width="1118" height="88" rx="12" fill="#fff4e6" stroke="#efd4af"/>
+    <text x="62" y="420" fill="#82501d" font-size="18" font-weight="700">Do not skip the evidence gates</text>
+    <text x="62" y="449" fill="#82501d" font-size="16">Network logon ≠ SMB proof. Successful authentication ≠ compromise. Recommendations ≠ completed actions.</text>
+    <text x="1158" y="508" text-anchor="end" fill="#65778e" font-size="12">Original workflow illustration · not a live capture</text>
+  </g>
+</svg>

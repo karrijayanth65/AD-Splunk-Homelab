@@ -1,0 +1,11 @@
+index=endpoint earliest=-30m ("4624" OR "4625")
+| rex field=_raw "<EventID(?: [^>]*)?>(?<event_id>4624|4625)</EventID>"
+| rex field=_raw "<Data Name=.TargetUserName.>(?<target_user>[^<]+)</Data>"
+| rex field=_raw "<Data Name=.IpAddress.>(?<source_ip>[^<]+)</Data>"
+| rex field=_raw "<Data Name=.LogonType.>(?<logon_type>[^<]+)</Data>"
+| where isnotnull(event_id) AND logon_type="3" AND isnotnull(target_user) AND isnotnull(source_ip) AND source_ip!="-"
+| eval source_ip=replace(source_ip,"^::ffff:","")
+| sort 0 _time
+| streamstats current=f time_window=10m count(eval(event_id="4625")) as preceding_failures by host source_ip target_user
+| where event_id="4624" AND preceding_failures>=3
+| table _time host source_ip target_user preceding_failures

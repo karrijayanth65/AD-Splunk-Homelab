@@ -1,0 +1,6 @@
+# Internal lab transport example, not a production TLS configuration.
+[tcpout]
+defaultGroup = lab_receiver
+
+[tcpout:lab_receiver]
+server = 192.168.10.10:9997

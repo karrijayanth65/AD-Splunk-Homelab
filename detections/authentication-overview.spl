@@ -1,0 +1,8 @@
+index=endpoint earliest=-30m ("4624" OR "4625")
+| rex field=_raw "<EventID(?: [^>]*)?>(?<event_id>4624|4625)</EventID>"
+| rex field=_raw "<Data Name=.TargetUserName.>(?<target_user>[^<]+)</Data>"
+| rex field=_raw "<Data Name=.IpAddress.>(?<source_ip>[^<]+)</Data>"
+| rex field=_raw "<Data Name=.LogonType.>(?<logon_type>[^<]+)</Data>"
+| where isnotnull(event_id)
+| table _time host event_id target_user source_ip logon_type source sourcetype
+| sort 0 _time

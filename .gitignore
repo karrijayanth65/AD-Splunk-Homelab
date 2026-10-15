@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+*.p12
+private/
+raw-evidence/
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
